@@ -8,10 +8,14 @@ const { userRouter } = require("./src/routes/userroutes.js");
 const { authMiddleware } = require("./src/middleware/authmiddleware.js");
 const { leadRouter } = require("./src/routes/leadRoutes.js");
 const activityrouter = require("./src/routes/activityroutes.js");
+const cors = require("cors")
 
 app.use(bodyParser.json());
 
-
+app.use(cors({
+    origin : "http://localhost:5173",
+    credentials: true,
+}))
 app.use('/auth',authRouter)
 app.use('/user',authMiddleware,userRouter)
 app.use('/leads',leadRouter)
