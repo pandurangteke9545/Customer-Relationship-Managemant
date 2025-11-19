@@ -2,11 +2,12 @@ const Activity = require("../module/activity");
 
 exports.createActivity = async (req, res) => {
   try {
-    const data = { ...req.body };
+    const data = { ...req.body,user_id:req.user.user_id };
 
-    console.log("We are going to create the activtiy")
+    console.log("We are going to create the activtiy",data)
     const activity = await Activity.create(data);
 
+    console.log(activity)
     res.status(201).json({
       success: true,
       message: "Activity created",

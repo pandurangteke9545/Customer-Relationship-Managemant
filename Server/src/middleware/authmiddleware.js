@@ -4,7 +4,7 @@ require("dotenv").config();
 function authMiddleware(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
-
+  console.log("We passed the token",token)
   if (!token) return res.status(401).json({ message: "Access denied, token missing" });
 
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {

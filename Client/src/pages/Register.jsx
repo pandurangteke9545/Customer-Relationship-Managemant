@@ -24,7 +24,10 @@ const Register = () => {
     const res = await dispatch(registerUser(formData));
 
     if (res.meta.requestStatus === "fulfilled") {
-      navigate("/login");
+      alert("User Registered Successfully")
+      setTimeout(()=>{
+           navigate("/login");
+      },1000)
     }
   };
 

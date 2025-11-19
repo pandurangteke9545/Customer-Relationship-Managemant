@@ -40,7 +40,7 @@ authRouter.post(
     const { username, email, password, role } = req.body;
     
     const responce = await registerUser(username, email, password, role)
-    // console.log(responce)
+    console.log(responce)
     res.status(200).json({message: "User registered successfully",
       data: {username,email,role:responce.role},
     });
